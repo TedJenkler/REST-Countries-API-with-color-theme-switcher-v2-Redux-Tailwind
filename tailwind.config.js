@@ -6,11 +6,13 @@ export default {
   ],
   theme: {
     extend: {
+
       colors: {
         'black': '#111517',
         'lightgrey': '#2B3844',
         'lightbg': '#FAFAFA',
-        'darkbg': '#202C36'
+        'darkbg': '#202C36',
+        'lightergrey': '#2B3844'
       }
     },
   },
