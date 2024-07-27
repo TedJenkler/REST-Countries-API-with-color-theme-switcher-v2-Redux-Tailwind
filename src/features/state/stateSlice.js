@@ -32,6 +32,22 @@ export const getRegion = createAsyncThunk(
     }
 );
 
+export const getSearch = createAsyncThunk(
+    'state/search',
+    async (name, { rejectWithValue }) => {
+        try {
+            const response = await axios(`https://restcountries.com/v3.1/name/${name}`);
+            if(!response) {
+                throw new Error('Failed to feth data')
+            }
+
+            return response.data;
+        }catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+)
+
 const initialState = {
     data: null,
     theme: 'true',
@@ -74,6 +90,19 @@ export const stateSlice = createSlice({
         .addCase(getRegion.rejected, (state, action) => {
             state.status = 'rejected';
             state.error = action.error;
+        })
+        .addCase(getSearch.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
+            state.data = action.payload;
+            state.error = null;
+        })
+        .addCase(getSearch.pending, (state) => {
+            state.status = 'loading';
+            state.error = null;
+        })
+        .addCase(getSearch.rejected, (state, action) => {
+            state.status = 'rejected';
+            state.error = action.error
         })
     }
 });
