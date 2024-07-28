@@ -19,6 +19,10 @@ function App() {
     return Number(nr).toLocaleString();
   };
 
+  if(!data || data.length < 2) {
+    return <p>Loading...</p>;
+  };
+
   return (
     <div className={`${theme ? "bg-lightbg" : "bg-darkbg"} min-h-screen min-w-screen`}>
       <Nav />

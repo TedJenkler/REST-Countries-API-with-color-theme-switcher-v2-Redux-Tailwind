@@ -51,7 +51,7 @@ function SelectedFlagByCode() {
         navigate(`/code/${code}`);
     };
 
-    if (!data || data.length === 0) {
+    if (!data || data.length > 1) {
         return <p>Loading...</p>;
     }
 

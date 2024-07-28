@@ -33,7 +33,7 @@ function CustomSelect() {
     };
 
     return (
-        <>
+        <div className='relative'>
             <div 
                 onClick={() => setOpen(!open)} 
                 className={`flex items-center justify-between px-6 w-[12.5rem] h-12 ${theme ? "bg-white text-black" : "bg-lightgrey text-white"} ml-4 rounded-[0.313rem] drop-shadow-sm cursor-pointer`}
@@ -53,7 +53,7 @@ function CustomSelect() {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 
