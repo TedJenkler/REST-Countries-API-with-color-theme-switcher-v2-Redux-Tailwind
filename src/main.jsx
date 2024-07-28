@@ -13,15 +13,15 @@ import SelectedFlagByCode from './components/SelectedFlagByCode.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/REST-Countries-API-with-color-theme-switcher-v2",
     element: <App />,
   },
   {
-    path: "/:id",
+    path: "/REST-Countries-API-with-color-theme-switcher-v2/:id",
     element: <SelectedFlag />
   },
   {
-    path: "/code/:id",
+    path: "/REST-Countries-API-with-color-theme-switcher-v2/code/:id",
     element: <SelectedFlagByCode />
   },
 ]);
