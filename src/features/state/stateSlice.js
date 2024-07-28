@@ -46,7 +46,7 @@ export const getSearch = createAsyncThunk(
             return rejectWithValue(error.message);
         }
     }
-)
+);
 
 const initialState = {
     data: null,
