@@ -64,6 +64,22 @@ export const getByCode = createAsyncThunk(
     }
 );
 
+export const getNameByCode = createAsyncThunk(
+    'state/getName',
+    async (code, { rejectWithValue }) => {
+        try{
+            const response = await axios(`https://restcountries.com/v3.1/alpha/${code}`);
+            if(!response) {
+                throw new Error('Failed to fetch data')
+            }
+
+            return response.data;
+        }catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
+
 const initialState = {
     data: null,
     theme: 'true',
@@ -130,6 +146,18 @@ export const stateSlice = createSlice({
             state.error = null;
         })
         .addCase(getByCode.rejected, (state, action) => {
+            state.status = 'rejected';
+            state.error = action.error;
+        })
+        .addCase(getNameByCode.fulfilled, (state) => {
+            state.status = 'fulfilled';
+            state.error = null;
+        })
+        .addCase(getNameByCode.pending, (state) => {
+            state.status = 'loading';
+            state.error = null;
+        })
+        .addCase(getNameByCode.rejected, (state, action) => {
             state.status = 'rejected';
             state.error = action.error;
         })
