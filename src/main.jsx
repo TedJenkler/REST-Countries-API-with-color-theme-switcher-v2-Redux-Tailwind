@@ -9,6 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import SelectedFlag from './components/SelectedFlag.jsx'
+import SelectedFlagByCode from './components/SelectedFlagByCode.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,11 @@ const router = createBrowserRouter([
   {
     path: "/:id",
     element: <SelectedFlag />
-  }
+  },
+  {
+    path: "/code/:id",
+    element: <SelectedFlagByCode />
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

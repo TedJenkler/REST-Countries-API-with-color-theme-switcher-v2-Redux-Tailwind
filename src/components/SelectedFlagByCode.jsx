@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getSearch } from '../features/state/stateSlice';
+import { getByCode } from '../features/state/stateSlice';
 import Nav from './Nav';
 import backarrow from '../assets/back.png';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-function SelectedFlag() {
+function SelectedFlagByCode() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const params = useParams();
     const data = useSelector((state) => state.state.data);
 
     useEffect(() => {
-        dispatch(getSearch(params.id));
+        dispatch(getByCode(params.id));
     }, [dispatch, params.id]);
 
     const getNativeNames = (nativeName) => {
@@ -23,7 +23,8 @@ function SelectedFlag() {
     };
 
     const handleSwap = (code) => {
-        navigate("/code/" + code);
+        dispatch(getByCode(code));
+        navigate("/" + code);
     };
 
     return (
@@ -55,9 +56,9 @@ function SelectedFlag() {
                         <h2 className='text-base font-semibold leading-6 mb-4'>Border Countries:</h2>
                         <div className='flex flex-wrap gap-[0.625rem] font-light'>
                             {data[0].borders?.length > 0 ? data[0].borders.map((country) => (
-                                <Link 
-                                    onClick={() => handleSwap(country)} 
-                                    key={country} 
+                                <Link
+                                    onClick={() => handleSwap(country)}
+                                    key={country}
                                     className='flex items-center justify-center bg-white min-w-[6rem] h-[1.75rem] drop-shadow-lg text-center overflow-hidden whitespace-nowrap'
                                 >
                                     {country}
@@ -73,4 +74,4 @@ function SelectedFlag() {
     );
 }
 
-export default SelectedFlag;
+export default SelectedFlagByCode;
