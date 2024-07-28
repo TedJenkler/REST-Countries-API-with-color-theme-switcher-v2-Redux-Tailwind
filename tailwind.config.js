@@ -6,7 +6,9 @@ export default {
   ],
   theme: {
     extend: {
-
+      screens: {
+          'smd': '702px'
+      },
       colors: {
         'black': '#111517',
         'lightgrey': '#2B3844',
