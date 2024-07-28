@@ -15,6 +15,10 @@ function App() {
     dispatch(getAll());
   }, [dispatch]);
 
+  const calcNr = (nr) => {
+    return Number(nr).toLocaleString();
+  };
+
   return (
     <div className={`${theme ? "bg-lightbg" : "bg-darkbg"} min-h-screen min-w-screen`}>
       <Nav />
@@ -41,7 +45,7 @@ function App() {
             <div className="p-6">
               <h1 className="text-lg font-extrabold leading-[26px] mb-4">{item.name.common}</h1>
               <p className="flex text-sm font-semibold leading-4 gap-1 mb-2">
-                Population: <span className="font-light">{item.population}</span>
+                Population: <span className="font-light">{calcNr(item.population)}</span>
               </p>
               <p className="flex text-sm font-semibold leading-4 gap-1 mb-2">
                 Region: <span className="font-light">{item.region}</span>

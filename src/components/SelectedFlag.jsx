@@ -57,6 +57,10 @@ function SelectedFlag() {
 
     const { flags, name, population, region, subregion, capital, tld, currencies, languages, borders } = data[0];
 
+    const calcNr = (nr) => {
+        return Number(nr).toLocaleString();
+      };
+
     return (
         <div className={`min-h-screen ${theme ? 'bg-lightbg text-black' : 'bg-darkbg text-white'}`}>
             <Nav />
@@ -70,7 +74,7 @@ function SelectedFlag() {
                 <img src={flags.png} alt='flag' className='w-[20rem] h-[14.313rem] mb-4 rounded-[0.358rem]' />
                 <h1 className='text-[1.375rem] font-extrabold leading-[auto] mb-4'>{name.common}</h1>
                 <p className='text-sm font-semibold mb-2'>Native Names: <span className='font-light'>{getNativeNames(name.nativeName)}</span></p>
-                <p className='text-sm font-semibold mb-2'>Population: <span className='font-light'>{population}</span></p>
+                <p className='text-sm font-semibold mb-2'>Population: <span className='font-light'>{calcNr(population)}</span></p>
                 <p className='text-sm font-semibold mb-2'>Region: <span className='font-light'>{region}</span></p>
                 <p className='text-sm font-semibold mb-2'>Sub Region: <span className='font-light'>{subregion}</span></p>
                 <p className='text-sm font-semibold mb-8'>Capital: <span className='font-light'>{capital}</span></p>
