@@ -42,7 +42,7 @@ function App() {
             className={`flex flex-col min-w-[16.5rem] min-h-[21rem] ${theme ? "bg-white text-black" : "bg-lightergrey text-white"} rounded-[0.313rem] drop-shadow-sm`}
           >
             <img
-              className="rounded-t-[0.313rem] min-h-[10rem] smd:max-h-[10rem]"
+              className="rounded-t-[0.313rem] min-h-[10rem] smd:max-h-[10rem] border-b border-black/25"
               src={item.flags.png}
               alt={item.name.common}
             />
