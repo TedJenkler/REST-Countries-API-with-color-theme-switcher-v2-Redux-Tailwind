@@ -13,15 +13,15 @@ import SelectedFlagByCode from './components/SelectedFlagByCode.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/REST-Countries-API-with-color-theme-switcher-v2",
+    path: "/REST-Countries-API-with-color-theme-switcher-v2-Redux-Tailwind/",
     element: <App />,
   },
   {
-    path: "/REST-Countries-API-with-color-theme-switcher-v2/:id",
+    path: "/REST-Countries-API-with-color-theme-switcher-v2-Redux-Tailwind/:id",
     element: <SelectedFlag />
   },
   {
-    path: "/REST-Countries-API-with-color-theme-switcher-v2/code/:id",
+    path: "/REST-Countries-API-with-color-theme-switcher-v2-Redux-Tailwind/code/:id",
     element: <SelectedFlagByCode />
   },
 ]);
@@ -32,4 +32,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
-)
+);
